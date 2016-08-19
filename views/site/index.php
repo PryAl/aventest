@@ -5,21 +5,21 @@
 
     <table class = "table table-condensed table-striped" border="1" width="300">
         <tr class = "info">
-            <th>№:</th>
             <th>Имя:</th>
             <th>Телефон:</th>
             <th>Описание:</th>
-            <th>Управление:</th>
+            <th colspan="2">Управление:</th>
         </tr>
-        <?php $i = 1;
+        <?php 
         foreach ($contacts as $contact): ?>
             <tr>
-                <td><?= $i ?></td>
                 <td><?= $contact['contactName'] ?></td>
                 <td><?= $contact['contactNumber'] ?></td>
                 <td><?= $contact['discription'] ?></td>
+                <td><input type="button" class="btn btn-info" value="Редактировать"></td>
+                <td><input type="button" class="btn btn-info" value="Удалить"></td>
             </tr> 
-        <?php $i++; endforeach; ?>
+        <?php endforeach; ?>
     </table>
 
     <!-- jQuery -->
