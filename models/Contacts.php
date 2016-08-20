@@ -8,7 +8,7 @@ class Contacts {
         // Соединение с БД
         $db = Db::getConnection();
         // Запрос к БД
-        $result = $db->query('SELECT * FROM phone ORDER BY id ASC');
+        $result = $db->query('SELECT * FROM phone ORDER BY addDate DESC');
         // Получение и возврат результатов
         $contactsList = array();
         $i = 0;
@@ -71,6 +71,19 @@ class Contacts {
         } else {
             return false;
         }
+    }
+    public static function getContactById($id) {
+        // Соединение с БД
+        $db = Db::getConnection();
+        // Текст запроса к БД
+        $sql = 'SELECT * FROM phone WHERE id = :id';
+        // Получение и возврат результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
+        // Указываем, что хотим получить данные в виде массива
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        return $result->fetch();
     }
 }
 

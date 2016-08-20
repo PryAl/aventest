@@ -20,7 +20,7 @@ class ContactsController {
             $errors = false;
             // Флаг успешной отправки
             $success = false;
-            
+
             if (!Contacts::checkName($name)) {
                 $errors[] = "Имя введено неверно!";
             }
@@ -30,25 +30,28 @@ class ContactsController {
             if (!Contacts::checkPhonenum($phonenum)) {
                 $errors[] = "Номер введен неверно!";
             }
-            if(Contacts::checkNameExist($name)) {
+            if (Contacts::checkNameExist($name)) {
                 $errors[] = "Такой контакт уже существует!";
             }
-            if($errors == false) {
+            if ($errors == false) {
                 $result = Contacts::add($name, $phonenum, $descript);
-                $success[] = "Контакт успешно сохранен!"; 
+                $success[] = "Контакт успешно сохранен!";
+                sleep(0.5);
+                header("Location: ../");
             }
         }
-        
+
         require_once (ROOT . '/views/contactadd/add.php');
-        
+
         return true;
     }
 
     public function actionEdit() {
+
         
         
         require_once (ROOT . '/views/contactedit/edit.php');
-        
+
         return true;
     }
 

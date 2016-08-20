@@ -3,7 +3,7 @@
 <div class="col-md-2">
     <a class="btn btn-primary" href="../" role = "button"><span class="glyphicon glyphicon-chevron-left"> </span>Вернуться к списку</a>
 </div>
-<div class="col-md-4">
+<div class="col-md-4 col-md-offset-2">
     <?php if (isset($errors) && is_array($errors)): ?>
         <ul>
             <?php foreach ($errors as $error): ?>
