@@ -1,9 +1,9 @@
 <?php
 
 return array(
-    'contacts' => 'contacts/index',
-    'index.php' => 'site/index',
+    'contacts/edit' => 'contacts/edit',
+    'contacts/add' => 'contacts/add',
     '' => 'site/index',
-
+    
 );
 
