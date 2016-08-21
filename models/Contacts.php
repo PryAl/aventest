@@ -45,6 +45,13 @@ class Contacts {
         $result->bindParam(':number', $phonenum, PDO::PARAM_STR);
         return $result->execute();
     }
+    /**
+     * Добавление контакта
+     * @param string $name <p>Имя</p>
+     * @param string $descript <p>Описание</p>
+     * @param string $phonenum <p>Номер</p>
+     * @return boolean <p>Результат выполнения метода</p>
+     */
     public static function add($name,$phonenum,$descript) {
         // Соединение с БД
         $db = Db::getConnection();
@@ -79,7 +86,11 @@ class Contacts {
         }
         return false;
     }
-    
+    /**
+     * Проверка наличие имени контакта в базе
+     * @param type $name
+     * @return boolean
+     */
     public static function checkNameExist($name) {
         $db = Db::getConnection();
         
@@ -95,6 +106,11 @@ class Contacts {
             return false;
         }
     }
+    /**
+     * Получение контакта по ID
+     * @param type $id
+     * @return array
+     */
     public static function getContactById($id) {
         // Соединение с БД
         $db = Db::getConnection();

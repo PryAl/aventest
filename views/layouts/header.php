@@ -26,5 +26,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+        <div class="col-md-12">
+        <h1 style="color: #91D5C8">Simple phonebook<small style="color: #337AB7"> first try</small></h1>
+    </div>
 </head>
