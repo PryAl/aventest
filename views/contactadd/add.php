@@ -18,14 +18,14 @@
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
-<form role ="form" action="#" method="post">
+    <form role ="form" action="#" method="post" id="addform">
 
         <div class="form-group">
             <input type="text" placeholder="Имя..." class="form-control" name="name" value="<?php echo $name; ?>" id="name">
             <p class="help-block">буквы русский/английский, до 50 символов</p>
         </div>
         <div class="form-group">
-            <input type="text" placeholder="Описание..." class="form-control" name="descript" value="<?php echo $descript; ?>" id="descript">
+            <textarea class="form-control" rows="3" form="addform" name="descript"><?php echo $descript; ?></textarea>
             <p class="help-block">текстовое поле, буквы/цифры/символы, 255 символов</p>
         </div>
         <div class="form-group">

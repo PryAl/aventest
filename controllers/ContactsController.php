@@ -45,19 +45,51 @@ class ContactsController {
         return true;
     }
     public function actionDelete() {
-        $userid = $_POST['id'];
+        $delId = $_POST['id'];
         $db = Db::getConnection();
-            // Текст запроса к БД
+        // Текст запроса к БД
         $sql = 'DELETE FROM phone WHERE id = :id';
-            // Получение и возврат результатов. Используется подготовленный запрос
+        // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
-        $result->bindParam(':id', $userid, PDO::PARAM_INT);
+        $result->bindParam(':id', $delId, PDO::PARAM_INT);
         return $result->execute();
     }
 
     public function actionEdit() {
+        $editId=$_GET['id'];
+        $contact=  Contacts::getContactById($editId);
+        $nameEdit = $contact['contactName'];
+        $phonenumEdit = $contact['contactNumber'];
+        $descriptEdit = $contact['description'];
+        $result = false;
+        if (isset($_POST['submit'])) {
+            // Если форма отправлена 
+            // Получаем данные из формы
+            $name = $_POST['name'];
+            $descript = $_POST['descript'];
+            $phonenum = $_POST['phonenum'];
 
-        
+            // Флаг ошибок
+            $errors = false;
+            // Флаг успешной отправки
+            $success = false;
+
+            if (!Contacts::checkName($name)) {
+                $errors[] = "Имя введено неверно!";
+            }
+            if (!Contacts::checkDescript($descript)) {
+                $errors[] = "Описание введено неверно!";
+            }
+            if (!Contacts::checkPhonenum($phonenum)) {
+                $errors[] = "Номер введен неверно!";
+            }
+            if (Contacts::checkNameExist($name)) {
+                $errors[] = "Такой контакт уже существует!";
+            }
+            if ($errors == false) {
+                echo 'SUCCESS';
+            }
+        }
         
         require_once (ROOT . '/views/contactedit/edit.php');
 

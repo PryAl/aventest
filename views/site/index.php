@@ -14,7 +14,7 @@
                 <td><?= $contact['contactName'] ?></td>
                 <td><?= $contact['contactNumber'] ?></td>
                 <td><?= $contact['description'] ?></td>
-                <td class="text-center"><a href="/contacts/edit.php"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+                <td class="text-center"><a href="/contacts/edit?id=<?php echo $contact['id'];?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
                 <td class="text-center"><a href="#" id="<?php echo $contact['id']; ?>" class="delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
             </tr>
         <?php endforeach; ?>
@@ -37,18 +37,16 @@
                         type: 'POST',
                         data: info,
                         url: '/contacts/delete',
-                        success: function () {
-                            
+                        success: function () {   
                         }
                     });
                     $(this).parent().parent().fadeOut(300, function () {
                         $(this).remove();
                     });
-                }
-                ;
+                };
                 return false;
             });
-        });
+        });  
     </script>
 
     <!-- Bootstrap Core JavaScript -->
