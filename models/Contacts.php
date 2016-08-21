@@ -67,7 +67,7 @@ class Contacts {
     }
 
     public static function checkName($name) {
-        if(strlen($name) <= 50 && strlen($name) >= 3) {
+        if(strlen($name) <= 50 && strlen($name) >= 3 && preg_match('@[а-яаёЁА-Яa-zA-Z]@u',$name) && !preg_match('@[0-9]@u',$name)) {
             return true;
         }
         return false;

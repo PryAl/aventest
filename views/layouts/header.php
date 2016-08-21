@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <title>aventest</title>
@@ -27,6 +27,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
         <div class="col-md-12">
-        <h1 style="color: #91D5C8">Simple phonebook<small style="color: #337AB7"> first try</small></h1>
+        <h1 style="color: #113147">Simple phonebook<small style="color: #337AB7"> (first try)</small></h1>
     </div>
 </head>

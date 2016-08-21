@@ -1,5 +1,8 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
-
+<div class="col-md-4 col-md-offset-4">
+    <h1 style="color: #113147">Добавить новый контакт:</h1>
+</div>
+<div class="col-md-12">
 <div class="col-md-2">
     <a class="btn btn-primary" href="../" role = "button"><span class="glyphicon glyphicon-chevron-left"> </span>Вернуться к списку</a>
 </div>
@@ -25,18 +28,18 @@
             <p class="help-block">буквы русский/английский, до 50 символов</p>
         </div>
         <div class="form-group">
-            <textarea class="form-control" rows="3" form="addform" name="descript"><?php echo $descript; ?></textarea>
+            <textarea class="form-control" rows="3" placeholder="Описание..." form="addform" name="descript"><?php echo $descript; ?></textarea>
             <p class="help-block">текстовое поле, буквы/цифры/символы, 255 символов</p>
         </div>
         <div class="form-group">
-            <input type="text" placeholder="Номер телефона..." class="form-control" name="phonenum" value="<?php echo $phonenum; ?>" id="phonenum">
-            <p class="help-block">цифры, без пробелов, формата 123456789</p>
+            <input type="text" placeholder="Номер телефона(формат: 00000000000)..." class="form-control" name="phonenum" value="<?php echo $phonenum; ?>" id="phonenum">
         </div>
         <div class="form-group col-md-offset-8">
             <input type="submit" class="btn btn-success form-control" value="Добавить" name="submit">
         </div>
 
 </form>
+    </div>
     </div>
 <!-- jQuery -->
 <script src="/template/js/jquery.js"></script>
