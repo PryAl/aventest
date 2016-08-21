@@ -83,11 +83,9 @@ class ContactsController {
             if (!Contacts::checkPhonenum($phonenum)) {
                 $errors[] = "Номер введен неверно!";
             }
-            if (Contacts::checkNameExist($name)) {
-                $errors[] = "Такой контакт уже существует!";
-            }
             if ($errors == false) {
-                echo 'SUCCESS';
+                $result = Contacts::edit($editId, $name, $descript, $phonenum);
+                header("Location: ../");
             }
         }
         

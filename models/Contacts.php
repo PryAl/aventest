@@ -21,7 +21,30 @@ class Contacts {
         }
         return $contactsList;
     }
-    
+    /**
+     * Редактирование данных пользователя
+     * @param integer $id <p>id пользователя</p>
+     * @param string $name <p>Имя</p>
+     * @param string $descript <p>Описание</p>
+     * @param string $phonenum <p>Номер</p>
+     * @return boolean <p>Результат выполнения метода</p>
+     */
+    public static function edit($id, $name, $descript, $phonenum )
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+        // Текст запроса к БД
+        $sql = "UPDATE phone 
+            SET contactName = :name, description = :descript, contactNumber = :number 
+            WHERE id = :id";
+        // Получение и возврат результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
+        $result->bindParam(':name', $name, PDO::PARAM_STR);
+        $result->bindParam(':descript', $descript, PDO::PARAM_STR);
+        $result->bindParam(':number', $phonenum, PDO::PARAM_STR);
+        return $result->execute();
+    }
     public static function add($name,$phonenum,$descript) {
         // Соединение с БД
         $db = Db::getConnection();
