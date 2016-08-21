@@ -36,8 +36,9 @@
                     $.ajax({
                         type: 'POST',
                         data: info,
-                        url: 'delete.php',
+                        url: '/contacts/delete',
                         success: function () {
+                            
                         }
                     });
                     $(this).parent().parent().fadeOut(300, function () {

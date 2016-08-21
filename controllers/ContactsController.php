@@ -36,7 +36,6 @@ class ContactsController {
             if ($errors == false) {
                 $result = Contacts::add($name, $phonenum, $descript);
                 $success[] = "Контакт успешно сохранен!";
-                sleep(0.5);
                 header("Location: ../");
             }
         }
@@ -44,6 +43,16 @@ class ContactsController {
         require_once (ROOT . '/views/contactadd/add.php');
 
         return true;
+    }
+    public function actionDelete() {
+        $userid = $_POST['id'];
+        $db = Db::getConnection();
+            // Текст запроса к БД
+        $sql = 'DELETE FROM phone WHERE id = :id';
+            // Получение и возврат результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $userid, PDO::PARAM_INT);
+        return $result->execute();
     }
 
     public function actionEdit() {
